@@ -35,6 +35,8 @@ class MenuGUI():
 
         self.mainarea_boots = tk.Frame(self.root)
 
+        self.mainarea_exit = tk.Frame(self.root)
+
         # calling the frame to show initially
         self._only_tshirt_show()
 
@@ -73,6 +75,14 @@ class MenuGUI():
 
         boots.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width,relx=.03, rely=.21)
 
+        # adding the Exit button on Left side-bar
+        # relx and rely are the attribute which set the postsion
+
+        exit = tk.Button(self.root, text ="Exit", command=quit)
+
+        exit.pack()
+
+        exit.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width,relx=.03, rely=.86)
 
     """
     This method will hide all the displays and show only the
@@ -257,6 +267,8 @@ def start_gui():
 def quit():
 
     sys.exit()
+
+
 
 
 def main():
