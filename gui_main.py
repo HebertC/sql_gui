@@ -15,15 +15,15 @@ class MenuGUI():
         self.root = tk.Tk()
         self.root.title("GUI for store data")
         # set the variable
-        self.window_height = 700
+        self.window_height = 500
 
         self.sidebar_width = 200
 
         self.main_area_width = 400
 
-        self.sidebar_bg_color = 'white'
+        self.sidebar_bg_color = 'gray'
 
-        self.mainarea_bg_color = '#CCC'
+        self.mainarea_bg_color = 'white'
 
         # calling the sidebar method
         self._set_sidebar()
@@ -42,17 +42,19 @@ class MenuGUI():
     def _set_sidebar(self):
 
         sidebar = tk.Frame(
-            self.root, width = self.sidebar_width, bg = self.sidebar_bg_color, height = self.window_height, relief = 'sunken', borderwidth = 2)
+            self.root, width = self.sidebar_width, bg = self.sidebar_bg_color, height =self.window_height,
+            relief='sunken', borderwidth = 5)
+
         sidebar.pack(expand=True, fill='both', side = 'left', anchor = 'nw')
 
         # adding the T shirt button on right side-bar
-        # relx and rely are the attribute which set the postsion
+        # relx and rely are the attribute which set the postilion
 
         tshirt = tk.Button(self.root, text = "T-shirt", command=self._only_tshirt_show)
 
         tshirt.pack()
 
-        tshirt.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width, relx=.0, rely=.001)
+        tshirt.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width, relx=.03, rely=.013)
 
         # adding the Poster button on right side-bar
         # relx and rely are the attribute which set the postsion
@@ -60,7 +62,7 @@ class MenuGUI():
 
         posters.pack()
 
-        posters.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width,relx=.0, rely=.09)
+        posters.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width,relx=.03, rely=.11)
 
         # adding the Boots button on right side-bar
         # relx and rely are the attribute which set the postsion
@@ -69,7 +71,7 @@ class MenuGUI():
 
         boots.pack()
 
-        boots.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width,relx=.0, rely=.179)
+        boots.place(bordermode = OUTSIDE, height = 50, width = self.sidebar_width,relx=.03, rely=.21)
 
 
     """
@@ -93,11 +95,12 @@ class MenuGUI():
 
         self.root.minsize(self.main_area_width,self.window_height)
 
-        self.mainarea_tshirt = tk.Frame(self.root, bg = self.mainarea_bg_color, width = self.main_area_width, height = self.window_height)
+        self.mainarea_tshirt = tk.Frame(self.root, bg = self.mainarea_bg_color,
+                                        width = self.main_area_width, height = self.window_height)
 
-        self.mainarea_tshirt.pack(expand = True, fill = 'both', side = 'right')
+        self.mainarea_tshirt.pack(expand = True, fill = 'both', side = 'right' )
 
-        Label(self.mainarea_tshirt, text="T shirt name").pack()
+        Label(self.mainarea_tshirt, text="T-Shirt Name").pack()
 
         self._storeVar = StringVar()
         self._tablename = "tshirts"
@@ -106,9 +109,9 @@ class MenuGUI():
         # adding the button on the text field
         # command attribute in button will execute the method or command
 
-        Entry(self.mainarea_tshirt, textvariable=self._storeVar, width=30).pack()
+        Entry(self.mainarea_tshirt, textvariable=self._storeVar, width=15).pack()
 
-        Button(self.mainarea_tshirt, text="Enter",width=27, command=self._enter_data).pack()
+        Button(self.mainarea_tshirt, text="Enter",width=15, command=self._enter_data).pack()
 
         self.root.mainloop()
 
@@ -130,11 +133,12 @@ class MenuGUI():
 
         self.root.minsize(self.main_area_width,self.window_height)
 
-        self.mainarea_posters = tk.Frame(self.root, bg = self.mainarea_bg_color, width = self.main_area_width, height = self.window_height)
+        self.mainarea_posters = tk.Frame(self.root, bg = self.mainarea_bg_color,
+                                         width = self.main_area_width, height = self.window_height)
 
         self.mainarea_posters.pack(expand = True, fill = 'both', side = 'right')
 
-        Label(self.mainarea_posters, text="Poster name").pack()
+        Label(self.mainarea_posters, text="Poster Name").pack()
 
         self._storeVar = StringVar()
         self._tablename = "posters"
@@ -143,15 +147,15 @@ class MenuGUI():
         # adding the button on the text field
         # command attribute in button will execute the method or command
 
-        Entry(self.mainarea_posters, textvariable=self._storeVar, width=30).pack()
+        Entry(self.mainarea_posters, textvariable=self._storeVar, width=15).pack()
 
-        Button(self.mainarea_posters, text="Enter",width=27, command=self._enter_data).pack()
+        Button(self.mainarea_posters, text="Enter",width=15, command=self._enter_data).pack()
 
         self.root.mainloop()
 
 
     """
-    This mestod will hide all the displays and show only the
+    This method will hide all the displays and show only the
     Boot window
     """
     def _only_boot_show(self):
@@ -169,7 +173,7 @@ class MenuGUI():
 
         self.mainarea_boots.pack(expand = True, fill = 'both', side = 'right')
 
-        Label(self.mainarea_boots, text="Boot name").pack()
+        Label(self.mainarea_boots, text="Boot Name").pack()
 
         self._storeVar = StringVar()
         self._tablename = "boots"
@@ -177,9 +181,9 @@ class MenuGUI():
         # adding the Entry (text-field) on frame
         # adding the button on the text field
         # command attribute in button will execute the method or command
-        Entry(self.mainarea_boots, textvariable=self._storeVar, width=30).pack()
+        Entry(self.mainarea_boots, textvariable=self._storeVar, width=15).pack()
 
-        Button(self.mainarea_boots, text="Enter",width=27, command=self._enter_data).pack()
+        Button(self.mainarea_boots, text="Enter",width=15, command=self._enter_data).pack()
 
         self.root.mainloop()
 
@@ -199,7 +203,7 @@ class MenuGUI():
         on the console.
         """
         for row in cursor.execute('SELECT * FROM %s'%self._tablename):
-            print (row)
+            print(row)
         db.close()
 
 
